@@ -41,8 +41,14 @@ function getTasks(){
 function addTask(e){
     if(taskInput.value === '')
         alert('Add a Task!');
+	
     else{
-        //create li element
+		if(taskList.forEach(function(task){
+			if(taskInput.value === task.textContent)
+				return true;
+		}))
+		
+        {//create li element
         const li = document.createElement('li');
         li.className = 'collection-item';
         li.appendChild(document.createTextNode(taskInput.value));
@@ -58,6 +64,7 @@ function addTask(e){
 
         //store in local storage
         storeInLS(taskInput.value);
+		}
     }
         taskInput.value = '';
         e.preventDefault();
